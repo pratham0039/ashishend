@@ -32,7 +32,7 @@
 
 
     {% for group in grouped_records reversed %}
-        <h2>{{ group.grouper }} <a href = "{% url 'generate_pdf' month=group.grouper lab=lab %}">Download PDF</a></h2>
+        <h2>{{ group.grouper }}</h2>
         <table class="table table-striped table-hover table-bordered">
             <thead class="table-dark">
                 <tr>
