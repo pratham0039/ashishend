@@ -2,8 +2,6 @@
 chroma-hnswlib==0.7.3
 chromadb==0.4.24
 dj-database-url==2.1.0
-Django==4.1.13
-dj-database-url==2.1.0
 Django==4.2.6
 gunicorn==21.2.0
 psycopg2
