@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- product_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+    <h1>Product List</h1>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.code }} - {{ product.testname }}- {{ product.Price }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<head>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+
+<div class="col-md-8 offset-md-3">
+<h1>Add Record</h1>
+<br/>
+
+<form method="POST" action="{% url 'add_record' %}" class="formscss">
+	{% csrf_token %}
+
+
+  {% for field in form %}
+    {% if field.field.name == 'tests' %}
+        {% for test in field.field.queryset %}
+            <p>
+                <label for="{{ field.id_for_label }}">
+                    <input type="checkbox" id="{{ field.id_for_label }}" name="{{ field.name }}" value="{{ test.code }}" data-price="{{ test.Price }}">
+                    {{ test.testname }} - ${{ test.Price }}
+                </label>
+            </p>
+        {% endfor %}
+    {% else %}
+        <p> {{ field }}</p>
+    {% endif %}
+{% endfor %}
+
+<br/>
+
+<p id="total-price">Total Price: 0</p>
+  <button type="submit" class="btn btn-secondary">Add Record</button>
+   <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
+</form>
+
+</div>
+
+<script>
+  $(document).ready(function() {
+      $('input[type="checkbox"]').change(function() {
+          var total = 0;
+          $('input[type="checkbox"]:checked').each(function() {
+              total += parseInt($(this).attr('data-price'));
+          });
+          $('#total-price').text('Total Price: ' + total);
+      });
+  });
+  </script>
+  
+
+{% endblock %}

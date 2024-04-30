@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+
+<div class="card">
+  <div class="card-header"><strong>
+    	{{ customer_record.first_name }} 
+		{{ customer_record.last_name }}</strong>
+  </div>
+  <div class="card-body">
+
+
+
+
+
+<p class="card-text">
+<strong>Phone: </strong>{{ customer_record.phone }}
+</p>
+
+
+
+<p class="card-text">
+<strong>Total Price: </strong>{{ customer_record.total_price }}</p>
+
+<p class="card-text">
+<strong>Create At: </strong>{{ customer_record.created_at }}</p>
+
+
+
+
+<p class="card-text">
+  <strong>Lab: </strong>{{ customer_record.lab }}</p>
+
+<p><strong>Tests:</strong></p>
+<ul>
+  {% for test in customer_record.tests.all %}
+      <li>{{ test.testname }}</li>
+  {% endfor %}
+</ul>
+    
+    
+  </div>
+</div>
+
+<br/><br/>
+<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
+<a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
+
+<a href="{% url 'update_record' customer_record.id %}" class="btn btn-secondary">Update Record</a>
+
+
+		
+
+{% endblock %}

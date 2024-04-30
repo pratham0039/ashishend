@@ -1,0 +1,32 @@
+#id_tests {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates four columns with equal width */
+    gap: 20px; /* Adjust the gap between columns */
+  }
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px; /* Gap between columns */
+}
+
+#id_tests {
+    grid-column: 1; /* Place id_tests in the left column */
+}
+
+/* Ensuring other elements take the right column */
+form > *:not(#id_tests) {
+    grid-column: 2; /* Place other elements in the right column */
+}
+
+/* Additional styling to make the layout more appealing */
+label {
+    display: block; /* Ensure labels take full width */
+}
+
+/* Adjusting input widths */
+input[type="text"],
+select,
+input[type="number"] {
+    width: 100%; /* Make input fields take full width */
+}
