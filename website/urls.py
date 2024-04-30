@@ -19,7 +19,7 @@ urlpatterns = [
     path('labs/', views.labs_list, name='labs_list'),
     path('search/', views.search_records, name='search_records'),
     path('lab/<str:lab>/', views.lab_records, name='lab_records'),
-    path('generate_pdf/<str:month>/<str:lab>/', views.generate_pdf, name='generate_pdf'),
+   
     path('add_deposit/<str:lab>', views.add_deposit, name = 'add_deposit')
 
 ]
