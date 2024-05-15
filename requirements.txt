@@ -16,7 +16,6 @@ dnspython==2.6.1
 drfpasswordless==1.5.9
 jsonpatch==1.33
 jsonpointer==2.4
-mysqlclient==2.2.4
 numpy==1.26.4
 pandas==2.1.1
 pymongo==3.12.3
